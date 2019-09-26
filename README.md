@@ -53,3 +53,26 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 #### 3-2 配置axios实例的参数及实例开发中的情况
 
 #### 3-3 登录拦截器及实例开发中的登录拦截器的作用
+
+#### ContactList.vue 为axios的一个实例，运用Vant-ui，以及node.js 自己定义的数据，进行一个联系人的一个demo
+  + 使用vant-ui 建议使用方式1，自动按需引入组件
+
+  + 并且基于Vue-cli3创建的项目，推荐使用babel7.0
+    + `
+      // 对于使用 babel7 的用户，可以在 babel.config.js 中配置
+        module.exports = {
+          plugins: [
+            ['import', {
+              libraryName: 'vant',
+              libraryDirectory: 'es',
+              style: true
+            }, 'vant']
+          ]
+        };
+      `
+
+#### 接口数据
+
+
+
+
