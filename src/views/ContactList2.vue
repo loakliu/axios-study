@@ -76,15 +76,18 @@ export default {
       //保存联系人
       if (this.isEdit) {
         // 编辑保存
-        this.instance.put("/contact/edit", info).then(res => {
-          if (res.data.code === 200) {
-            Toast("编辑成功");
-            this.showEdit = false;
-            this.getList();
-          }
-        }).catch(()=>{
-          Toast("请求失败，请稍后重试");
-        });
+        this.instance
+          .put("/contact/edit", info)
+          .then(res => {
+            if (res.data.code === 200) {
+              Toast("编辑成功");
+              this.showEdit = false;
+              this.getList();
+            }
+          })
+          .catch(() => {
+            Toast("请求失败，请稍后重试");
+          });
       } else {
         // 新建保存
         this.instance
@@ -105,19 +108,22 @@ export default {
     },
     onDelete(info) {
       // 删除联系人
-      this.instance.delete('/contact',{
-        params:{
-          id:info.id
-        }
-      }).then(res=>{
-        if(res.data.code===200){
-          Toast('删除成功');
-          this.showEdit=false;
-          this.getList();
-        }
-      }).catch(()=>{
-         Toast("请求失败，请稍后重试");
-      })
+      this.instance
+        .delete("/contact", {
+          params: {
+            id: info.id
+          }
+        })
+        .then(res => {
+          if (res.data.code === 200) {
+            Toast("删除成功");
+            this.showEdit = false;
+            this.getList();
+          }
+        })
+        .catch(() => {
+          Toast("请求失败，请稍后重试");
+        });
     }
   }
 };

@@ -31,10 +31,10 @@ export default {
   data() {
     return {
       list: [],
-      instance: null, 
-      showEdit: false, 
-      editingContact: {}, 
-      isEdit: false 
+      instance: null,
+      showEdit: false,
+      editingContact: {},
+      isEdit: false
     };
   },
   created() {
@@ -65,19 +65,14 @@ export default {
       if (this.isEdit) {
         // 编辑保存
         let res = await this.$Http.editContact(info);
-        if (res.code === 200) { //返回的res实际为res.data
-          Toast("编辑成功");
-          this.showEdit = false;
-          this.getList();
+        if (res.code === 200) {
+          this.successHttp();
         }
       } else {
         // 新建保存
         let res = await this.$Http.newContactJson(info);
         if (res.code === 200) {
-          Toast("新建成功");
-          this.showEdit = false;
-          // 每次新建数据后都需进行异步刷新数据，故将请求封装成一个方法，新建完成后进行调用
-          this.getList();
+          this.successHttp();
         }
       }
     },
@@ -87,10 +82,13 @@ export default {
         id: info.id
       });
       if (res.code === 200) {
-        Toast("删除成功");
-        this.showEdit = false;
-        this.getList();
+        this.successHttp();
       }
+    },
+    successHttp() {
+      Toast("编辑成功");
+      this.showEdit = false;
+      this.getList();
     }
   }
 };
