@@ -73,6 +73,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 #### 接口数据
 
++ 感谢提供的接口：https://github.com/web-gm?tab=overview&from=2017-12-01&to=2017-12-31
++ 使用方法，在接口文件目录下，shitf+ 鼠标右键， 打开powershell 窗口，
+  + 输入 npm install
+  + 输入 node index.js
 
+#### 封装扩展--更完善的axios封装思路（精简代码，添加其他的功能）
 
-
+  + 给请求添加统一的loading
+  + 在header 添加token鉴权
+  + 添加统一的错误处理(比如登陆超时等)
