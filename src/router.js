@@ -39,6 +39,12 @@ export default new Router({
       path: '/contactList2',
       name: '联系人列表2',
       component: () => import('./views/ContactList2.vue')
-    }
+    },
+        {
+          path: '/transfer',
+          name: 'transfer',
+          component: () => import('./views/transfer.vue')
+        }
+
   ]
 })
